@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="MauiAppMinhasCompras.Views.ListaProduto" 
+	Title="Minhas Compras"> 
+
+	<ContentPage.ToolbarItems>
+		<!-- Define os itens da barra de ferramentas -->
+		<ToolbarItem Text="Somar" Clicked="ToolbarItem_Clicked_1" />
+		<!-- Item para somar produtos -->
+		<ToolbarItem Text="Adicionar" Clicked="ToolbarItem_Clicked" />
+		<!-- Item para adicionar um novo produto -->
+	</ContentPage.ToolbarItems>
+
+	<VerticalStackLayout>
+		<!-- Organiza os elementos verticalmente -->
+		<SearchBar x:Name="txt_search"  <!-- Campo de busca para produtos -->
+		Placeholder="Busca de Produtos" <!-- Texto de dica no campo de busca -->
+		TextChanged="txt_search_TextChanged"/> <!-- Evento acionado quando o texto muda -->
+
+		<ListView x:Name="lst_produtos" ItemSelected="lst_produtos_ItemSelected">
+			<!-- Lista que exibe os produtos -->
+			<ListView.Header>
+				<Grid ColumnDefinitions="*, *, *, *, *">
+					<!-- Grid para organizar colunas do cabeçalho -->
+					<Label Grid.Column="0" Text="ID" />
+					<Label Grid.Column="1" Text="Descrição" />
+					<Label Grid.Column="2" Text="Preço" />
+					<Label Grid.Column="3" Text="Qnt" />
+					<Label Grid.Column="4" Text="Total" />
+				</Grid>
+			</ListView.Header>
+			<ListView.ItemTemplate>
+				<!-- Template para os itens da lista -->
+				<DataTemplate>
+					<ViewCell>
+						<!-- Célula de visualização para cada item da lista -->
+						<ViewCell.ContextActions>
+							<!-- Ações de contexto para cada célula (ex: menu) -->
+							<MenuItem Text="Remover" Clicked="MenuItem_Clicked" />
+							<!-- Item do menu para remover o produto -->
+						</ViewCell.ContextActions>
+						<Grid ColumnDefinitions="*, *, *, *, *">
+							<!-- Grid para organizar os dados do produto -->
+							<Label Grid.Column="0" Text="{Binding Id}" />
+							<!-- Exibe o ID do produto -->
+							<Label Grid.Column="1" Text="{Binding Descricao}" />
+							<!-- Exibe a descrição do produto -->
+							<Label Grid.Column="2" Text="{Binding Preco}" />
+							<!-- Exibe o preço do produto -->
+							<Label Grid.Column="3" Text="{Binding Quantidade}" />
+							<!-- Exibe a quantidade do produto -->
+							<Label Grid.Column="4" Text="{Binding Total}" />
+							<!-- Exibe o total do produto -->
+						</Grid>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</VerticalStackLayout>
+</ContentPage>

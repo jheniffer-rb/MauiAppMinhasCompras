@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="MauiAppMinhasCompras.Views.EditarProduto" <!-- Define a classe de code-behind associada -->
+	Title="{Binding Descricao}"> <!-- Define o título da página como a descrição do produto, vinculado ao contexto de dados -->
+
+	<ContentPage.ToolbarItems>
+		<!-- Define os itens da barra de ferramentas da página -->
+		<ToolbarItem Text="Salvar" Clicked="ToolbarItem_Clicked" />
+		<!-- Cria um item de barra de ferramentas com texto "Salvar" que chama o método ToolbarItem_Clicked quando clicado -->
+	</ContentPage.ToolbarItems>
+
+	<VerticalStackLayout Spacing="10" Padding="10">
+		<!-- Layout vertical com espaçamento-->
+		<Label Text="Descrição do Produto:" />
+		<Entry x:Name="txt_descricao" Text="{Binding Descricao}" />
+		<!-- Campo de entrada para a descrição do produto, vinculado à propriedade Descricao -->
+
+		<Label Text="Quantidade:" />
+		<Entry x:Name="txt_quantidade" Text="{Binding Quantidade}" Keyboard="Numeric" />
+		<!-- Campo de entrada para a quantidade, com teclado numérico -->
+
+		<Label Text="Preço Unitário:" />
+		<Entry x:Name="txt_preco" Text="{Binding Preco}" Keyboard="Numeric" />
+		<!-- Campo de entrada para o preço unitário, com teclado numérico -->
+	</VerticalStackLayout>
+</ContentPage>
+
+
